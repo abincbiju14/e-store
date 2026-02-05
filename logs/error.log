@@ -1,0 +1,21 @@
+2026-02-02 20:42:38,994 | ERROR | create.py:17 | Product creation failed: Product with SKU string already exists
+2026-02-02 20:43:15,416 | ERROR | create.py:17 | Product creation failed: Product with SKU string already exists
+2026-02-02 20:45:35,434 | ERROR | create.py:18 | Product creation failed: Product with SKU string already exists
+2026-02-02 20:46:18,197 | ERROR | create.py:18 | Product creation failed: Product with SKU string already exists
+2026-02-02 20:46:58,461 | ERROR | create.py:18 | Product creation failed: Product with SKU string already exists
+2026-02-02 20:47:22,047 | ERROR | create.py:18 | Product creation failed: Product with SKU string already exists
+2026-02-02 20:50:14,078 | ERROR | create.py:18 | Product creation failed: Product with SKU string1 already exists
+2026-02-02 20:53:25,972 | ERROR | get.py:15 | Product retrieval failed: Product with ID 3 not found
+2026-02-04 23:07:20,056 | ERROR | get.py:14 | Product retrieval failed: Product with ID 3 not found
+2026-02-04 23:09:29,855 | ERROR | create.py:17 | Customer creation failed: Customer with email string already exists
+2026-02-04 23:12:54,851 | ERROR | get.py:11 | Customer retrieval failed: Customer with ID 3 not found
+2026-02-04 23:14:53,365 | ERROR | create.py:17 | Customer creation failed: Customer with email strings already exists
+2026-02-04 23:33:07,834 | ERROR | get.py:11 | Customer retrieval failed: Customer with ID 3 not found
+2026-02-05 01:08:07,944 | ERROR | create.py:22 | Customer creation failed: Customer with email stringsq already exists
+2026-02-05 01:15:13,390 | ERROR | create.py:22 | Customer creation failed: Customer with email stringsqa already exists
+2026-02-05 01:17:19,315 | ERROR | create.py:22 | Customer creation failed: Customer with email abin@123 already exists
+2026-02-05 01:22:18,299 | ERROR | create.py:22 | Customer creation failed: Customer with email abin@12 already exists
+2026-02-05 01:23:29,087 | ERROR | create.py:22 | Customer creation failed: Customer with email abin@1 already exists
+2026-02-05 01:25:37,346 | ERROR | create.py:41 | Invalid credentials
+2026-02-05 01:25:46,287 | ERROR | create.py:41 | Invalid credentials
+2026-02-05 01:25:52,283 | ERROR | create.py:41 | Invalid credentials
