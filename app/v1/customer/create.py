@@ -1,22 +1,25 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status, Depends
-from app.models.customer import Customer
-from app.schemas.customer import CustomerCreate, CustomerLogin, CustomerResponse
+from app.models.customer import Customer as CustomerModel
+from app.schemas.customer import Customer as CustomerSchema
 from app.error.logger import logger
-from app.v1.customer.auth import hash_password, create_access_token, verify_password
+from app.core.auth import Auth
 
 
-def create_customer(customer: CustomerCreate, db: Session, response_model=CustomerResponse):
-    new_customer = Customer(
+def create_customer(
+    customer: CustomerSchema.CustomerCreate,
+    db: Session,
+):
+    new_customer = CustomerModel(
         first_name=customer.first_name,
         last_name=customer.last_name,
         email=customer.email,
         phone_number=customer.phone_number,
-        password=hash_password(customer.password),
+        password=Auth.hash_password(customer.password),
         # password=customer.password,
     )
     existing_customer = (
-        db.query(Customer).filter(Customer.email == customer.email).first()
+        db.query(CustomerModel).filter(CustomerModel.email == customer.email).first()
     )
     if existing_customer:
         logger.error(
@@ -34,12 +37,12 @@ def create_customer(customer: CustomerCreate, db: Session, response_model=Custom
     return new_customer
 
 
-def login_customer(data: CustomerLogin, db: Session):
-    customer = db.query(Customer).filter(Customer.email == data.email).first()
+def login_customer(data: CustomerSchema.CustomerLogin, db: Session):
+    customer = db.query(CustomerModel).filter(CustomerModel.email == data.email).first()
 
-    if not customer or not verify_password(data.password, customer.password):
+    if not customer or not Auth.verify_password(data.password, customer.password):
         logger.error("Invalid credentials")
         raise HTTPException(status_code=401, detail="Invalid credentials")
 
-    token = create_access_token({"sub": str(customer.id)})
+    token = Auth.create_access_token({"sub": str(customer.id)})
     return {"access_token": token, "token_type": "bearer"}

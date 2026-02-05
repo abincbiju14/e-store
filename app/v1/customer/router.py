@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.schemas.customer import CustomerCreate, CustomerLogin, CustomerResponse
+from app.schemas.customer import Customer as CustomerSchema
 from app.v1.customer.create import create_customer, login_customer
 from app.v1.customer.get import get_customer
 from fastapi import Depends
@@ -9,8 +9,8 @@ from sqlalchemy.orm import Session
 router = APIRouter()
 
 
-@router.post("/", response_model= CustomerResponse)
-def create(customer: CustomerCreate, db: Session = Depends(get_db)):
+@router.post("/", response_model=CustomerSchema.CustomerResponse)
+def create(customer: CustomerSchema.CustomerCreate, db: Session = Depends(get_db)):
     return create_customer(customer, db)
 
 
@@ -29,10 +29,6 @@ def get(customer_id: int, db: Session = Depends(get_db)):
 #     return update_customer(customer_id, customer, db)
 
 
-@router.post("/customerAuth")
-def login(CustomerLogin: CustomerLogin, db: Session = Depends(get_db)):
+@router.post("/customerAuth", response_model=CustomerSchema.CustomerLoginResponse)
+def login(CustomerLogin: CustomerSchema.CustomerLogin, db: Session = Depends(get_db)):
     return login_customer(CustomerLogin, db)
-
-
-
-

@@ -2,29 +2,29 @@ from __future__ import annotations
 from pydantic import BaseModel
 
 
-class Customer:
-    class CustomerCreate(BaseModel):
+class Admin:
+    class AdminCreate(BaseModel):
         first_name: str
         last_name: str
         email: str
         phone_number: str
         password: str
 
-    class CustomerResponse(BaseModel):
+    class AdminResponse(BaseModel):
         id: int
         first_name: str
         last_name: str
         email: str
         phone_number: str
 
-    class CustomerGetResponse(BaseModel):
-        data: list[Customer.CustomerResponse]
+    class AdminGetResponse(BaseModel):
+        data: list[Admin.AdminResponse]
 
-    class CustomerLogin(BaseModel):
+    class AdminLogin(BaseModel):
         email: str
         password: str
 
-    class CustomerLoginResponse(BaseModel):
+    class AdminLoginResponse(BaseModel):
         access_token: str
         token_type: str
 

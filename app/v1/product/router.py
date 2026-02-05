@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.schemas.product import ProductCreate
+from app.schemas.product import Product as ProductSchema
 from app.v1.product.create import create_product
 from app.v1.product.get import get_product
 from fastapi import Depends
@@ -10,7 +10,7 @@ router = APIRouter()
 
 
 @router.post("/")
-def create(product: ProductCreate, db: Session = Depends(get_db)):
+def create(product: ProductSchema.ProductCreate, db: Session = Depends(get_db)):
     return create_product(product, db)
 
 
@@ -25,5 +25,5 @@ def get(product_id: int):
 
 
 @router.put("/{product_id}")
-def update(product_id: int, product: ProductCreate):
+def update(product_id: int, product: ProductSchema.ProductCreate):
     return {"product_id": product_id, "updated_data": product}

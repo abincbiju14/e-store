@@ -19,3 +19,13 @@
 2026-02-05 01:25:37,346 | ERROR | create.py:41 | Invalid credentials
 2026-02-05 01:25:46,287 | ERROR | create.py:41 | Invalid credentials
 2026-02-05 01:25:52,283 | ERROR | create.py:41 | Invalid credentials
+2026-02-06 00:14:56,184 | ERROR | create.py:25 | Customer creation failed: Customer with email abin@11 already exists
+2026-02-06 00:15:09,825 | ERROR | get.py:13 | Product retrieval failed: Product with ID 3 not found
+2026-02-06 00:15:14,962 | ERROR | get.py:13 | Product retrieval failed: Product with ID 1 not found
+2026-02-06 00:50:09,184 | ERROR | create.py:37 | Invalid credentials
+2026-02-06 00:53:13,104 | ERROR | create.py:37 | Invalid credentials
+2026-02-06 00:53:22,521 | ERROR | create.py:37 | Invalid credentials
+2026-02-06 00:53:31,072 | ERROR | create.py:37 | Invalid credentials
+2026-02-06 00:53:56,297 | ERROR | create.py:37 | Invalid credentials
+2026-02-06 01:01:51,200 | ERROR | create.py:37 | Invalid credentials
+2026-02-06 01:09:39,650 | ERROR | create.py:43 | Invalid credentials
